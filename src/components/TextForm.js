@@ -39,7 +39,7 @@ export default function Textform(props) {
     setText(event.target.value);
   }
 
-  const [text, setText] = useState('Vinay');
+  const [text, setText] = useState('Enter Your Text Here');
     //text = "New Text" //Wrong Way To Chnage The Text
     //setText("New Text"); //Correct Way To Chnage The Text
   return (
@@ -49,10 +49,10 @@ export default function Textform(props) {
       <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark'?'grey':'white', color: props.mode === 'dark'?'white':'black'}} id="myBox" rows="10"></textarea>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUPClick}>Convert To UppeCase</button>
-      <button className="btn btn-primary mx-2" onClick={handleLOClick}>Covert To LowerCase</button>
-      <button className="btn btn-primary mx-2" onClick={handleClear}>Clear</button>
-      <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Clear Spaces</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleUPClick}>Convert To UppeCase</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleLOClick}>Covert To LowerCase</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleClear}>Clear</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpace}>Clear Spaces</button>
       
     </div>
 
