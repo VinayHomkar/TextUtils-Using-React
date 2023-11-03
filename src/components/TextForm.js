@@ -34,7 +34,7 @@ export default function Textform(props) {
   //Handle o chnage is not necessary but for clearing console and to count changes of existing string we used and 
   // if we didnt use handle on chnage function it will not allow to enter text in text area box
   const handleOnChange = ()=>{
-    console.log("On Change")
+    //console.log("On Change")
     // eslint-disable-next-line no-restricted-globals
     setText(event.target.value);
   }
@@ -45,22 +45,22 @@ export default function Textform(props) {
   return (
     <>
     <div className="container" style={{color: props.mode === 'dark'?'white':'black'}}>
-      <h2>{props.heading}</h2>
+      <h2 className = 'mb-3'>{props.heading}</h2>
       <div className="mb-3">
-        <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark'?'grey':'white', color: props.mode === 'dark'?'white':'black'}} id="myBox" rows="10"></textarea>
+        <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark'?'#5e5f89':'white', color: props.mode === 'dark'?'white':'black'}} id="myBox" rows="10"></textarea>
       </div>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleUPClick}>Convert To UppeCase</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleLOClick}>Covert To LowerCase</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleClear}>Clear</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleExtraSpace}>Clear Spaces</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUPClick}>Convert To UppeCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLOClick}>Covert To LowerCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClear}>Clear</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleExtraSpace}>Clear Spaces</button>
       
     </div>
 
     <div className='container my-3' style={{color: props.mode === 'dark'?'white':'black'}}>
       <h2>Your Text Summary</h2>
       <p>{countWords('text')} Words And {text.length} Characters</p>
-      <p>Minutes To Read, SLOW :{0.008 * text.split(" ").length}Minutes, AVERAGE :{0.003333 * text.split(" ").length}Minutes</p>
-      <p>Sentences :{text.split(".").length}</p>
+      <p>Minutes To Read, SLOW :{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length}, AVERAGE :{0.003333 * text.split(" ").filter((element)=>{return element.length!==0}).length}Minutes</p>
+      <p>Sentences :{text.split(".").filter((element)=>{return element.length!==0}).length}</p>
     </div>
     </>
   )

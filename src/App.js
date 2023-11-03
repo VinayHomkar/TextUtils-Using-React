@@ -4,7 +4,7 @@ import AboutUs from './components/AboutUs';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert'
 import Textform from './components/TextForm';
-import {useState} from 'react';
+import { useState } from 'react';
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
       {/*<Navbar/>  - Without passing any props */}
       <Alert alert={alert}/>
       <div className="container">
-        <Textform heading = "Enter The Text To Analyze :" mode={mode} showAlert={showAlert}/>
+        <Textform heading = " Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" mode={mode} showAlert={showAlert}/>
         <AboutUs  mode={mode}/>
           
        
